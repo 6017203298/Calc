@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>标准计算器</title>
+	</head>
+	<script type="text/javascript">
+		window.alert("欢迎使用标准计算器");
+		function Data(num){
+			document.getElementById("data").value+=num;
+		}
+		function Result(){			
+				var num = document.getElementById("data");				
+				try{
+					var	result = eval(num.value);
+				}catch(e){
+					result = "FORMAT ERROR";
+				}				
+				if(result == "Infinity"){
+					result = "VALUE ERROR";
+				}
+				num.value = result;
+		}
+		function root(){
+			var num = document.getElementById("data");
+			var result = eval(num.value);
+			num.value = Math.sqrt(result);
+		}
+		function sqrt(){
+			var num = document.getElementById("data");
+			var result = eval(num.value);
+			num.value = result * result;
+		}
+		function cube(){
+			var num = document.getElementById("data");
+			var result = eval(num.value);
+			num.value = result * result * result;
+		}
+		function fen(){
+			var num = document.getElementById("data");
+			var result = eval(num.value);
+			num.value = 1/result;
+		}
+		function Clear(){
+			var num = document.getElementById("data");
+			num.value="";
+		}
+        function Backspace(){
+			var num = document.getElementById("data");
+			num.value = num.value.substring(0,num.value.length-1);
+		}
+
+	</script>	
+	<style>
+		table{
+			 margin: 15px auto;
+		}
+		a {
+				text-decoration: none;
+		}
+		td{
+			border: none;
+			background-color: whitesmoke;
+			width: 86px;
+			
+		}
+		[type=button]{
+		  border-radius: 5px;
+		}
+		.btn{
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			background-color: #FFDEAD;
+		}
+		.btn:hover{
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			background-color: #FFB90F;
+		}
+		.c1{
+			text-align: center;
+		}
+	</style>
+	<body>
+		<table border="4" cellspacing="4" cellpadding="0" style="height: 350px; width: 450px">
+			<tr >
+				<td colspan="5"><input type="text" id="data" style="width: 98%"/></td>
+				
+			</tr>
+			<tr>
+				<td><input type="button" id="7" value="7" class="btn" onclick="	Data('7')"/></td>
+				<td><input type="button" id="8" value="8" class="btn" onclick="Data('8')"/></td>
+				<td><input type="button" id="9" value="9" class="btn" onclick="Data('9')"/></td>
+				<td><input type="button" id="add" value="+" class="btn" onclick="Data('+')"/></td>
+				<td><input type="button" value="←" id="←" class="btn" onclick="Backspace()"/></td>
+			</tr>
+			
+			<tr>
+				<td><input type="button" id="4" value="4" class="btn" onclick="Data('4')"/></td>
+				<td><input type="button" id="5" value="5" class="btn" onclick="Data('5')"/></td>
+				<td><input type="button" id="6" value="6" class="btn" onclick="Data('6')"/></td>
+				<td><input type="button" id="sub" value="-" class="btn" onclick="Data('-')"/></td>
+				<td><input type="button" id="x²" value="x²" class="btn" onclick="sqrt()"/></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="1" value="1" class="btn" onclick="Data('1')"/></td>
+				<td><input type="button" id="2" value="2" class="btn" onclick="Data('2')"/></td>
+				<td><input type="button" id="3" value="3" class="btn" onclick="Data('3')"/></td>
+				<td><input type="button" id="mul" value="*" class="btn" onclick="Data('*')"/></td>
+				<td><input type="button" id="x³" value="x³" class="btn" onclick="cube()"/></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="clear" value="C" class="btn" style="color: red;" onclick="Clear()"/></td>
+				<td><input type="button" id="0" value="0" class="btn" onclick="Data('0')"/></td>
+				<td><input type="button" id="point" value="." class="btn" onclick="Data('.')"/></td>
+				<td><input type="button" id="division" value="/" class="btn" onclick="Data('/')"/></td>
+				<td><input type="button" id="root" value="√" class="btn" onclick="root()"/></td>
+			</tr>
+			<tr>
+				
+				<td><input type="button" id="(" value="(" class="btn" onclick="Data('(')"/></td>
+				<td><input type="button" id=")" value=")" class="btn" onclick="Data(')')"/></td>
+				<td><input type="button" id="fen" value="1/x" class="btn" onclick="fen()"/></td>
+				<td><input type="button" id="mo" value="%" class="btn" onclick="Data('%')"/></td>
+				<td ><input type="button" id="result" value="=" class="btn" onclick="Result()"/></td>
+			</tr>
+		</table>
+		<br />
+		<div class="c1"><button><a href="scalc.html">更换计算器</a></button></div>
+	</body>
+</html>
