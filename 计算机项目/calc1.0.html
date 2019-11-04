@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>计算器</title>
+	</head>
+	<script type="text/javascript">
+		function Data(num){
+			document.getElementById("data").value+=num;
+		}
+		function Result(){
+			var num = document.getElementById("data");
+			var	result = eval(num.value);
+				num.value = result;
+			if(isNaN(num.value)){
+				num.value = "ERROR：不能为空！";
+			}
+		}
+		function Clear(){
+			var num = document.getElementById("data");
+			num.value="";
+		}
+		
+	</script>	
+	<style>
+		td{
+			border: none;
+			background-color: whitesmoke;
+		}
+		.btn{
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			background-color: #FFDEAD;
+		}
+		.btn:hover{
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			background-color: #FFB90F;
+		}
+	</style>
+	<body>
+		<table border="3" cellspacing="5" cellpadding="0" style="height: 350px; width: 270px">
+			<tr >
+				<td colspan="4"><input type="text" id="data" style="width: 250px"/></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="7" value="7" class="btn" onclick="	Data('7')"/></td>
+				<td><input type="button" id="8" value="8" class="btn" onclick="Data('8')"/></td>
+				<td><input type="button" id="9" value="9" class="btn" onclick="Data('9')"/></td>
+				<td><input type="button" id="add" value="+" class="btn" onclick="Data('+')"/></td>
+			</tr>
+			
+			<tr>
+				<td><input type="button" id="4" value="4" class="btn" onclick="Data('4')"/></td>
+				<td><input type="button" id="5" value="5" class="btn" onclick="Data('5')"/></td>
+				<td><input type="button" id="6" value="6" class="btn" onclick="Data('6')"/></td>
+				<td><input type="button" id="sub" value="-" class="btn" onclick="Data('-')"/></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="1" value="1" class="btn" onclick="Data('1')"/></td>
+				<td><input type="button" id="2" value="2" class="btn" onclick="Data('2')"/></td>
+				<td><input type="button" id="3" value="3" class="btn" onclick="Data('3')"/></td>
+				<td><input type="button" id="mul" value="*" class="btn" onclick="Data('*')"/></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="clear" value="C" class="btn" style="color: red;" onclick="Clear()"/></td>
+				<td><input type="button" id="0" value="0" class="btn" onclick="Data('0')"/></td>
+				<td><input type="button" id="point" value="." class="btn" onclick="Data('.')"/></td>
+				<td><input type="button" id="division" value="/" class="btn" onclick="Data('/')"/></td>
+			</tr>
+			<tr>
+				<td ><input type="button" id="result" value="=" class="btn" onclick="Result()"/></td>
+				<td><input type="button" id="(" value="(" class="btn" onclick="Data('(')"/></td>
+				<td><input type="button" id=")" value=")" class="btn" onclick="Data(')')"/></td>
+				<td><input type="button" id="mo" value="%" class="btn" onclick="Data('%')"/></td>
+			</tr>
+		</table>
+	</body>
+</html>
